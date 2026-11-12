@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body {
+    margin: 0; width: 1920px; height: 1080px; overflow: hidden;
+    background: #0d0f14; color: #e8eaf1;
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  }
+  body { display: grid; place-items: center; }
+  .bg {
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(900px 520px at 80% 0%, rgba(224,183,108,.15), transparent 65%),
+      radial-gradient(800px 520px at 0% 100%, rgba(90,120,190,.12), transparent 62%);
+  }
+  .grid {
+    position: fixed; inset: 0; opacity: .2;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(circle at center, black, transparent 72%);
+  }
+  .content { position: relative; text-align: center; }
+  h1 { margin: 0 0 18px; font-size: 82px; letter-spacing: 3px; }
+  .sub { color: #aab3c6; font-size: 30px; letter-spacing: 3px; margin-bottom: 50px; }
+  .steps { display: flex; gap: 28px; justify-content: center; }
+  .step {
+    width: 420px; padding: 30px 26px; border-radius: 20px;
+    border: 1px solid rgba(224,183,108,.28);
+    background: linear-gradient(180deg, rgba(224,183,108,.09), rgba(21,25,35,.9));
+    text-align: left;
+  }
+  .num {
+    width: 42px; height: 42px; border-radius: 50%;
+    display: grid; place-items: center; margin-bottom: 18px;
+    color: #21180a; font-size: 22px; font-weight: 700;
+    background: linear-gradient(145deg, #f3cd85, #c89548);
+  }
+  .step b { display: block; font-size: 28px; margin-bottom: 10px; }
+  .step span { color: #98a3b8; font-size: 21px; line-height: 1.55; }
+  .bottom { margin-top: 54px; color: #d8c49a; font-size: 26px; letter-spacing: 2px; }
+  .small { margin-top: 14px; color: #7f899d; font-size: 20px; }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="grid"></div>
+  <div class="content">
+    <h1>双击安装，自动接管</h1>
+    <div class="sub">不用命令行，不用手动改游戏文件</div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><b>安装启动器</b><span>双击 Setup.exe，选择安装目录</span></div>
+      <div class="step"><div class="num">2</div><b>自动检测</b><span>首次启动自动找到游戏和 ModTheSpire</span></div>
+      <div class="step"><div class="num">3</div><b>Steam 启动</b><span>选择「启动 with mod」就会打开启动器</span></div>
+    </div>
+    <div class="bottom">启动原始版本仍然直接进入原版游戏</div>
+    <div class="small">下载地址见简介 / GitHub Releases</div>
+  </div>
+</body>
+</html>

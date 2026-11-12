@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<style>
+  html, body {
+    margin: 0; width: 1920px; height: 1080px; overflow: hidden;
+    background: #0d0f14; color: #e8eaf1;
+    font-family: "Microsoft YaHei", "Segoe UI", sans-serif;
+  }
+  body { display: grid; place-items: center; }
+  .bg {
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(900px 520px at 20% 0%, rgba(224,183,108,.16), transparent 65%),
+      radial-gradient(900px 600px at 100% 100%, rgba(90,120,190,.14), transparent 62%);
+  }
+  .grid {
+    position: fixed; inset: 0; opacity: .22;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(circle at center, black, transparent 72%);
+  }
+  .content {
+    position: relative; display: flex; flex-direction: column;
+    align-items: center; text-align: center; gap: 26px;
+  }
+  .logo {
+    width: 144px; height: 144px; border-radius: 34px;
+    display: grid; place-items: center;
+    font-size: 70px; font-weight: 800; color: #21180a;
+    background: linear-gradient(145deg, #f3cd85, #b8873f);
+    box-shadow: 0 18px 50px rgba(224,183,108,.28), inset 0 2px 0 rgba(255,255,255,.45);
+  }
+  h1 { margin: 0; font-size: 92px; letter-spacing: 4px; font-weight: 800; }
+  .sub { font-size: 32px; color: #aab3c6; letter-spacing: 6px; }
+  .line { width: 620px; height: 2px; background: linear-gradient(90deg, transparent, #e0b76c, transparent); }
+  .tags { display: flex; gap: 16px; margin-top: 8px; }
+  .tag {
+    padding: 12px 26px; border: 1px solid rgba(224,183,108,.3);
+    border-radius: 999px; color: #d8c49a; font-size: 24px;
+    background: rgba(224,183,108,.07);
+  }
+  .footer {
+    position: fixed; left: 0; right: 0; bottom: 64px; text-align: center;
+    color: #7f899d; font-size: 22px; letter-spacing: 3px;
+  }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="grid"></div>
+  <div class="content">
+    <div class="logo">尖</div>
+    <h1>尖塔 Mod 启动器</h1>
+    <div class="sub">Slay the Spire · ModTheSpire</div>
+    <div class="line"></div>
+    <div class="tags">
+      <span class="tag">Mod 管理</span>
+      <span class="tag">依赖检查</span>
+      <span class="tag">Steam with mod 接管</span>
+    </div>
+  </div>
+  <div class="footer">一键切换组合 · 自动补齐前置 · 双击安装</div>
+</body>
+</html>

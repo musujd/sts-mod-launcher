@@ -1,0 +1,56 @@
+{
+  "name": "sts-mod-launcher",
+  "productName": "尖塔 Mod 启动器",
+  "version": "1.0.0",
+  "description": "Slay the Spire (ModTheSpire) 的 Mod 管理与一键启动工具",
+  "main": "src/main/main.js",
+  "author": "local",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test/run-tests.js",
+    "package": "node scripts/package.js",
+    "install-local": "node scripts/install-local.js",
+    "dist": "electron-builder --win nsis"
+  },
+  "build": {
+    "appId": "com.stsmodlauncher.app",
+    "productName": "尖塔Mod启动器",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "tools/**/*",
+      "package.json",
+      "!**/*.map"
+    ],
+    "asar": true,
+    "compression": "maximum",
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": true,
+      "shortcutName": "尖塔 Mod 启动器",
+      "artifactName": "尖塔Mod启动器-Setup-${version}.exe"
+    }
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "electron": "45.3.1",
+    "electron-builder": "^26.18.0"
+  }
+}

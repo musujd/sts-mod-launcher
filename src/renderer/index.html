@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+  <title>尖塔 Mod 启动器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">尖</div>
+        <div>
+          <h1>尖塔 Mod 启动器</h1>
+          <p class="subtitle">Slay the Spire · ModTheSpire</p>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <div class="game-status">
+          <span class="dot" id="game-dot"></span>
+          <div class="game-path-wrap">
+            <span class="label">游戏目录</span>
+            <span class="value" id="game-path">未设置</span>
+          </div>
+        </div>
+        <button class="btn ghost" id="btn-choose-dir">选择目录</button>
+        <button class="btn ghost" id="btn-rescan" title="重新扫描本地与工坊 mod">重新扫描</button>
+        <button class="btn ghost steam-hook-btn" id="btn-steam-hook" title="配置 Steam 启动接管">
+          <span class="dot" id="steam-hook-dot"></span>
+          Steam 接管
+        </button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel profiles-panel">
+        <div class="panel-head">
+          <h2>Mod 组合</h2>
+          <button class="icon-btn" id="btn-new-profile" title="新建配置档">+</button>
+        </div>
+        <div class="profile-list" id="profile-list"></div>
+        <div class="profile-tools">
+          <button class="btn tiny" id="btn-dup-profile">复制</button>
+          <button class="btn tiny" id="btn-rename-profile">重命名</button>
+          <button class="btn tiny danger" id="btn-delete-profile">删除</button>
+        </div>
+          <p class="hint">点击配置档即可切换整套 mod 组合，再点「保存并启动」。</p>
+          <button class="btn tiny workshop-btn" id="btn-workshop">浏览创意工坊</button>
+          <div class="mts-note" id="mts-note"></div>
+      </aside>
+
+      <section class="panel mods-panel">
+        <div class="mods-toolbar">
+          <input id="search" class="search" type="search" placeholder="搜索名称 / modid / 作者…" autocomplete="off">
+          <div class="segmented" id="filter">
+            <button data-filter="all" class="active">全部</button>
+            <button data-filter="enabled">已启用</button>
+            <button data-filter="disabled">未启用</button>
+          </div>
+        </div>
+        <div class="mods-scroll" id="mods-scroll">
+          <div class="group-title" id="enabled-group">
+            <span>已启用 <em id="enabled-count">0</em></span>
+            <span class="dirty" id="dirty-badge" hidden>未保存</span>
+          </div>
+          <div class="mod-list" id="enabled-list"></div>
+          <div class="group-title" id="disabled-group"><span>未启用 <em id="disabled-count">0</em></span></div>
+          <div class="mod-list" id="disabled-list"></div>
+          <div class="empty" id="mods-empty" hidden></div>
+        </div>
+      </section>
+
+      <aside class="panel side-panel">
+        <div class="launch-box">
+          <div class="launch-top">
+            <span>当前组合</span>
+            <strong id="current-profile-name">-</strong>
+            <button class="icon-btn small" id="btn-edit-desc" title="编辑组合说明">✎</button>
+          </div>
+          <p class="launch-desc" id="current-profile-desc"></p>
+          <div class="launch-stats" id="launch-stats"></div>
+          <button class="btn launch" id="btn-launch">▶ 保存并启动游戏</button>
+          <div class="launch-row">
+            <button class="btn ghost" id="btn-save">仅保存</button>
+            <button class="btn ghost" id="btn-suggest-order" hidden>按依赖排序</button>
+          </div>
+          <p class="launch-hint" id="launch-hint"></p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="diag">诊断 <span class="badge" id="diag-badge" hidden></span></button>
+          <button class="tab" data-tab="logs">日志</button>
+        </div>
+        <div class="tab-body" id="tab-diag">
+          <div id="diag-summary" class="diag-summary"></div>
+          <div id="issue-list" class="issue-list"></div>
+          <div class="empty small" id="diag-empty" hidden>✓ 依赖与文件检查通过</div>
+        </div>
+        <div class="tab-body" id="tab-logs" hidden>
+          <div class="log-toolbar">
+            <select id="log-select" class="search"></select>
+            <button class="btn tiny" id="btn-log-refresh">刷新</button>
+            <button class="btn tiny" id="btn-open-logs">打开目录</button>
+          </div>
+          <div id="log-errors" class="log-errors"></div>
+          <pre id="log-content" class="log-content">切换到日志页后会自动加载最新日志…</pre>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal">
+      <h3 id="modal-title">标题</h3>
+      <p id="modal-text" class="modal-text"></p>
+      <input id="modal-input" class="search" hidden>
+      <textarea id="modal-textarea" class="search" hidden rows="3"></textarea>
+      <label id="modal-check-wrap" class="checkline" hidden>
+        <input type="checkbox" id="modal-check"> <span id="modal-check-label">选项</span>
+      </label>
+      <div class="modal-actions">
+        <button class="btn ghost" id="modal-extra" hidden></button>
+        <button class="btn ghost" id="modal-cancel">取消</button>
+        <button class="btn primary" id="modal-ok">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-wrap" id="toasts"></div>
+  <script src="app.js"></script>
+</body>
+</html>
