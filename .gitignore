@@ -1,0 +1,13 @@
+node_modules/
+dist/
+release/
+video/out/
+video/assets/fonts/
+video/assets/frames/
+video/assets/.edge-profile/
+video/assets/voice.mp3
+video/assets/subtitles.ass
+video/assets/timing.json
+video/assets/title.png
+video/assets/outro.png
+*.log
