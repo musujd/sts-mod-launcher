@@ -1,9 +1,13 @@
-# 尖塔 Mod 启动器
+# 尖塔 Mod 启动器（Slay the Spire Mod Launcher）
 
 给《杀戮尖塔》（Slay the Spire）+ ModTheSpire 使用的 Windows 桌面启动器：扫描本地与创意工坊 mod，按组合启用/禁用、检查依赖，并一键启动游戏。
 
+**English:** A Windows desktop mod manager and launcher for Slay the Spire + ModTheSpire. It scans local and Steam Workshop mods, manages mod profiles and load order, checks dependencies, and hooks the Steam "Play with mods" launch.
+
 - 源码仓库：<https://github.com/musujd/sts-mod-launcher>
 - 下载安装包：[GitHub Releases](https://github.com/musujd/sts-mod-launcher/releases/latest)
+
+**搜索关键词 / Keywords:** 杀戮尖塔 Mod 启动器、杀戮尖塔 Mod 管理器、杀戮尖塔 Mod 组合、尖塔 Mod 启动器、ModTheSpire 启动器、Slay the Spire mod launcher、Slay the Spire mod manager、ModTheSpire launcher、STS mod manager、Steam Workshop mods.
 
 ## 安装版（推荐分享）
 
