@@ -7,7 +7,7 @@
 
 ## 安装版（推荐分享）
 
-从 [GitHub Releases](https://github.com/musujd/sts-mod-launcher/releases/latest) 下载 `尖塔Mod启动器-Setup-1.0.0.exe` 后运行：
+从 [GitHub Releases](https://github.com/musujd/sts-mod-launcher/releases/latest) 下载 `STSModLauncher-Setup-1.0.0.exe` 后运行：
 
 1. 选择安装目录（默认安装到当前用户目录，无需管理员）。
 2. 安装完成后启动器会自动检测 Steam 版《杀戮尖塔》和 ModTheSpire。
